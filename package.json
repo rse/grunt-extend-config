@@ -1,0 +1,36 @@
+{
+    "name":        "grunt-extend-config",
+    "homepage":    "http://github.com/rse/grunt-extend-config",
+    "description": "Grunt Plugin for Extending Grunt Configuration",
+    "version":     "0.9.0",
+    "license":     "MIT",
+    "author": {
+        "name":    "Ralf S. Engelschall",
+        "email":   "rse@engelschall.com",
+        "url":     "http://engelschall.com"
+    },
+    "keywords": [
+        "gruntplugin",
+        "extend", "config"
+    ],
+    "repository": {
+        "type": "git",
+        "url":  "git://github.com/rse/grunt-extend-config.git"
+    },
+    "bugs": {
+        "url":  "http://github.com/rse/grunt-extend-config/issues"
+    },
+    "main": "Gruntfile.js",
+    "devDependencies": {
+        "grunt":                "~0.4.1",
+        "grunt-cli":            "~0.1.9",
+        "grunt-contrib-jshint": "~0.6.4",
+        "grunt-contrib-clean":  "~0.5.0"
+    },
+    "peerDependencies": {
+        "grunt":                "~0.4.1"
+    },
+    "engines": {
+        "node":                 ">=0.10.0"
+    }
+}
