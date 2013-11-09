@@ -46,6 +46,9 @@ Instead of writing...
 ```js
 //  Gruntfile.js
 module.exports = function (grunt) {
+    grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks("grunt-contrib-less");
+
     grunt.initConfig({
         uglify: {
             "lib": {
@@ -71,9 +74,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.loadNpmTasks("grunt-contrib-uglify");
-    grunt.loadNpmTasks("grunt-contrib-less");
-
     grunt.registerTask("default", [ "lib", "app" ]);
     grunt.registerTask("lib", [ "uglify:lib", "less:lib" ]);
     grunt.registerTask("app", [ "uglify:app", "less:app" ]);
@@ -86,6 +86,8 @@ module.exports = function (grunt) {
 //  Gruntfile.js
 module.exports = function (grunt) {
     grunt.loadNpmTasks("grunt-extend-config");
+    grunt.loadNpmTasks("grunt-contrib-uglify");
+    grunt.loadNpmTasks("grunt-contrib-less");
 
     //  general task configurations
     grunt.initConfig({
@@ -100,6 +102,7 @@ module.exports = function (grunt) {
             }
         }
     });
+    grunt.registerTask("default", [ "lib", "app" ]);
 
     //  all configurations for building the libraries
     grunt.extendConfig({
@@ -114,6 +117,7 @@ module.exports = function (grunt) {
             }
         }
     });
+    grunt.registerTask("lib", [ "uglify:lib", "less:lib" ]);
 
     //  all configurations for building the application
     grunt.extendConfig({
@@ -128,12 +132,6 @@ module.exports = function (grunt) {
             }
         }
     });
-
-    grunt.loadNpmTasks("grunt-contrib-uglify");
-    grunt.loadNpmTasks("grunt-contrib-less");
-
-    grunt.registerTask("default", [ "lib", "app" ]);
-    grunt.registerTask("lib", [ "uglify:lib", "less:lib" ]);
     grunt.registerTask("app", [ "uglify:app", "less:app" ]);
 };
 ```
