@@ -1,6 +1,6 @@
 /*
 **  grunt-extend-config -- Grunt Plugin for Extending Grunt Configuration
-**  Copyright (c) 2013 Ralf S. Engelschall <rse@engelschall.com>
+**  Copyright (c) 2013-2014 Ralf S. Engelschall <rse@engelschall.com>
 **
 **  Permission is hereby granted, free of charge, to any person obtaining
 **  a copy of this software and associated documentation files (the
@@ -26,8 +26,11 @@
 
 module.exports = function (grunt) {
     grunt.extendConfig = function (config) {
+        /*  iterate over all config entries (the task configurations)  */
         grunt.util._.forEach(config, function (taskConfig, taskName) {
+            /*  iterate over all task entries (the target configurations)  */
             grunt.util._.forEach(taskConfig, function (targetConfig, targetName) {
+                /*  merge the target configuration into the global Grunt configuration  */
                 grunt.config.set([ taskName, targetName ], targetConfig);
             });
         });
