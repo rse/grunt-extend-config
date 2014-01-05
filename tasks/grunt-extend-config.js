@@ -25,13 +25,29 @@
 /* global module: false */
 
 module.exports = function (grunt) {
+    /*  extend the public Grunt API  */
     grunt.extendConfig = function (config) {
+
         /*  iterate over all config entries (the task configurations)  */
         grunt.util._.forEach(config, function (taskConfig, taskName) {
+
             /*  iterate over all task entries (the target configurations)  */
             grunt.util._.forEach(taskConfig, function (targetConfig, targetName) {
-                /*  merge the target configuration into the global Grunt configuration  */
-                grunt.config.set([ taskName, targetName ], targetConfig);
+
+                /*  merge configuration  */
+                if (targetName === "options") {
+                    /*  merge the special option configuration in parts
+                        (to allow establishing defaults incrementally)
+                        into the global Grunt configuration  */
+                    grunt.util._.forEach(targetConfig, function (optionValue, optionName) {
+                        grunt.config.set([ taskName, targetName, optionName ], optionValue);
+                    });
+                }
+                else {
+                    /*  merge the target configuration as a whole
+                        into the global Grunt configuration  */
+                    grunt.config.set([ taskName, targetName ], targetConfig);
+                }
             });
         });
     };
