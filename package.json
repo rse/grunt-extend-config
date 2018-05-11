@@ -2,7 +2,7 @@
     "name":        "grunt-extend-config",
     "homepage":    "http://github.com/rse/grunt-extend-config",
     "description": "Grunt Plugin for Extending Grunt Configuration",
-    "version":     "0.9.6",
+    "version":     "0.9.7",
     "license":     "MIT",
     "author": {
         "name":    "Ralf S. Engelschall",
